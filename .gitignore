@@ -11,3 +11,4 @@ deploy
 .vs/
 .vscode/
 *.pyc
+build_dir
