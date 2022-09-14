@@ -29,6 +29,8 @@ if( CMAKE_COMPILER_IS_GNUCC )
   set( BUILD_STATIC OFF CACHE BOOL "Build static executables" )
 endif()
 
+set( ENABLE_DECODER ON CACHE BOOL "Build static executables" )
+
 # set c11
 set( CMAKE_C_STANDARD 11 )
 set( CMAKE_C_STANDARD_REQUIRED ON )
@@ -132,7 +134,9 @@ endif()
 
 # add needed subdirectories
 #add_subdirectory( "source/lib/lcommon" )
+if( ENABLE_ENCODER )
 add_subdirectory( "source/app/lencod" )
+endif()
 add_subdirectory( "source/app/ldecod" )
 add_subdirectory( "source/app/rtpdump" )
 add_subdirectory( "source/app/rtploss" )
