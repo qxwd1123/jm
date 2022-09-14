@@ -12,31 +12,22 @@
    Apple Computer, Inc.
    Dolby Laboratories, Inc., USA
    Ericsson Radio Systems, Sweden
-   Fraunhofer-Institute for Telecommunications Heinrich-Hertz-Institut (HHI), Germany
-   LSI Logic, Canada
-   Microsoft Corp., USA
-   Motorola Inc., USA
-   Nokia Corporation, Finland
-   Nokia Inc., USA
-   RealNetworks, Inc., USA
-   Sejong Univ., Digital Media System Lab., Korea
-   Siemens AG, Germany
-   Telenor Broadband Services, Norway
-   TELES AG, Germany
-   Thomson, Inc., USA
-   University of Hannover, Institut of Communication Theory and Signal Processing,Germany
-   Videolocus, Canada
+   Fraunhofer-Institute for Telecommunications Heinrich-Hertz-Institut (HHI),
+ Germany LSI Logic, Canada Microsoft Corp., USA Motorola Inc., USA Nokia
+ Corporation, Finland Nokia Inc., USA RealNetworks, Inc., USA Sejong Univ.,
+ Digital Media System Lab., Korea Siemens AG, Germany Telenor Broadband
+ Services, Norway TELES AG, Germany Thomson, Inc., USA University of Hannover,
+ Institut of Communication Theory and Signal Processing,Germany Videolocus,
+ Canada
 
    \endverbatim
    \par Full Contact Information
    \verbatim
 
-      Lowell Winger                   <lwinger@videolocus.com><lwinger@uwaterloo.ca><lwinger@lsil.com>
-      Guy Côté                        <gcote@videolocus.com>
-      Michael Gallant                 <mgallant@videolocus.com>
-      VideoLocus Inc.
-      97 Randall Dr.
-      Waterloo, ON, Canada  N2V1C5
+      Lowell Winger
+ <lwinger@videolocus.com><lwinger@uwaterloo.ca><lwinger@lsil.com> Guy Côté
+ <gcote@videolocus.com> Michael Gallant <mgallant@videolocus.com> VideoLocus
+ Inc. 97 Randall Dr. Waterloo, ON, Canada  N2V1C5
 
       Inge Lille-Langøy               <inge.lille-langoy@telenor.com>
       Telenor Broadband Services
@@ -112,10 +103,8 @@
       San Diego, CA 92121 USA
 
       Feng Wu                         <fengwu@microsoft.com>
-      Xiaoyan Sun                     <sunxiaoyan@msrchina.research.microsoft.com>
-      Microsoft Research Asia
-      3/F, Beijing Sigma Center
-      No.49, Zhichun Road, Hai Dian District,
+      Xiaoyan Sun <sunxiaoyan@msrchina.research.microsoft.com> Microsoft
+ Research Asia 3/F, Beijing Sigma Center No.49, Zhichun Road, Hai Dian District,
       Beijing China 100080
 
       Mathias Wien                    <wien@ient.rwth-aachen.de>
@@ -170,7 +159,7 @@
       Corporate Research
       Thomson Inc
       101 West 103rd Street
-      Indianapolis, IN 46290  
+      Indianapolis, IN 46290
 
       Siwei Ma                        <swma@jdl.ac.cn>
       Institute of Computing Technology
@@ -189,7 +178,7 @@
       Alexis Michael Tourapis         <alexismt@ieee.org><atour@dolby.com>
       Athanasios Leontaris            <aleon@dolby.com>
       Peshala Pahalawatta             <ppaha@dolby.com>
-      Yuwen He                        <yhe@dolby.com>  
+      Yuwen He                        <yhe@dolby.com>
       Yan Ye                          <yye@dolby.com>
       Dolby Laboratories Inc.
       3601 West Alameda Ave.
@@ -201,17 +190,16 @@
       500 El Camino Real
       Santa Clara, CA 95053
 
-      Shun-ichi Sekiguchi             <Sekiguchi.Shunichi@eb.MitsubishiElectric.co.jp>
-      Information Technology R&D Center, 
+      Shun-ichi Sekiguchi <Sekiguchi.Shunichi@eb.MitsubishiElectric.co.jp>
+      Information Technology R&D Center,
       Mitsubishi Electric Corporation
       5-1-1, Ofuna, Kamakura, Japan
 
       Yung-Lyul Lee                   <yllee@sejong.ac.kr>
       Ki-Hun Han                      <khhan@dms.sejong.ac.kr>
-      Department of Computer Engineering, 
+      Department of Computer Engineering,
       Sejong University
       98 Kunja-Dong, Kwangjin-Gu, Seoul 143-747, Korea
 
    \endverbatim
  */
-

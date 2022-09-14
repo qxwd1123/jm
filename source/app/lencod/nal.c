@@ -9,7 +9,8 @@
  *    onto Encapsulate Byte Sequence Payload (EBSP).
  *  \date 14 June 2002
  * \author
- *    Main contributors (see contributors.h for copyright, address and affiliation details)
+ *    Main contributors (see contributors.h for copyright, address and
+ *affiliation details)
  *      - Shankar Regunathan                  <shanre@microsoft.de>
  *      - Stephan Wenger                      <stewe@cs.tu-berlin.de>
  ***************************************************************************************
@@ -21,24 +22,23 @@
 #include "biariencode.h"
 #include "nal.h"
 
-static const int MbWidthC  [4]= { 0, 8, 8,  16};
-static const int MbHeightC [4]= { 0, 8, 16, 16};
+static const int MbWidthC[4] = { 0, 8, 8, 16 };
+static const int MbHeightC[4] = { 0, 8, 16, 16 };
 
- /*!
- ************************************************************************
- * \brief
- *    Converts String Of Data Bits (SODB) to Raw Byte Sequence
- *    Packet (RBSP)
- * \param currStream
- *        Bitstream which contains data bits.
- * \return None
- * \note currStream is byte-aligned at the end of this function
- *
- ************************************************************************
+/*!
+************************************************************************
+* \brief
+*    Converts String Of Data Bits (SODB) to Raw Byte Sequence
+*    Packet (RBSP)
+* \param currStream
+*        Bitstream which contains data bits.
+* \return None
+* \note currStream is byte-aligned at the end of this function
+*
+************************************************************************
 */
 
-void SODBtoRBSP(Bitstream *currStream)
-{
+void SODBtoRBSP(Bitstream *currStream) {
   currStream->byte_buf <<= 1;
   currStream->byte_buf |= 1;
   currStream->bits_to_go--;
@@ -47,7 +47,6 @@ void SODBtoRBSP(Bitstream *currStream)
   currStream->bits_to_go = 8;
   currStream->byte_buf = 0;
 }
-
 
 /*!
 ************************************************************************
@@ -71,22 +70,19 @@ void SODBtoRBSP(Bitstream *currStream)
 ************************************************************************
 */
 
-int RBSPtoEBSP(byte *NaluBuffer, unsigned char *rbsp, int rbsp_size)
-{
-  int j     = 0;
+int RBSPtoEBSP(byte *NaluBuffer, unsigned char *rbsp, int rbsp_size) {
+  int j = 0;
   int count = 0;
   int i;
 
-  for(i = 0; i < rbsp_size; i++)
-  {
-    if(count == ZEROBYTES_SHORTSTARTCODE && !(rbsp[i] & 0xFC))
-    {
+  for (i = 0; i < rbsp_size; i++) {
+    if (count == ZEROBYTES_SHORTSTARTCODE && !(rbsp[i] & 0xFC)) {
       NaluBuffer[j] = 0x03;
       j++;
       count = 0;
     }
     NaluBuffer[j] = rbsp[i];
-    if(rbsp[i] == 0x00)
+    if (rbsp[i] == 0x00)
       count++;
     else
       count = 0;
@@ -113,8 +109,8 @@ int RBSPtoEBSP(byte *NaluBuffer, unsigned char *rbsp, int rbsp_size)
 *
 ************************************************************************
 */
-int addCabacZeroWords(VideoParameters *p_Vid, NALU_t *nalu, StatParameters *cur_stats)
-{
+int addCabacZeroWords(VideoParameters *p_Vid, NALU_t *nalu,
+                      StatParameters *cur_stats) {
   seq_parameter_set_rbsp_t *active_sps = p_Vid->active_sps;
 
   int stuffing_bytes = 0;
@@ -122,24 +118,29 @@ int addCabacZeroWords(VideoParameters *p_Vid, NALU_t *nalu, StatParameters *cur_
 
   byte *buf = &nalu->buf[nalu->len];
 
-  int RawMbBits = 256 * p_Vid->bitdepth_luma + 2 * MbWidthC[active_sps->chroma_format_idc] * MbHeightC[active_sps->chroma_format_idc] * p_Vid->bitdepth_chroma;
-  int min_num_bytes = ((96 * get_pic_bin_count(p_Vid)) - (RawMbBits * (int)p_Vid->PicSizeInMbs *3) + 1023) / 1024;
+  int RawMbBits = 256 * p_Vid->bitdepth_luma +
+                  2 * MbWidthC[active_sps->chroma_format_idc] *
+                      MbHeightC[active_sps->chroma_format_idc] *
+                      p_Vid->bitdepth_chroma;
+  int min_num_bytes = ((96 * get_pic_bin_count(p_Vid)) -
+                       (RawMbBits * (int)p_Vid->PicSizeInMbs * 3) + 1023) /
+                      1024;
 
-  if (min_num_bytes > p_Vid->bytes_in_picture)
-  {
+  if (min_num_bytes > p_Vid->bytes_in_picture) {
     stuffing_bytes = min_num_bytes - p_Vid->bytes_in_picture;
-    printf ("Inserting %d/%d cabac_zero_word syntax elements/bytes (Clause 7.4.2.10)\n", ((stuffing_bytes + 2)/3), stuffing_bytes);  
+    printf(
+        "Inserting %d/%d cabac_zero_word syntax elements/bytes (Clause "
+        "7.4.2.10)\n",
+        ((stuffing_bytes + 2) / 3), stuffing_bytes);
 
-    for (i = 0; i < stuffing_bytes; i+=3 )
-    {
-      *buf++ = 0x00; // CABAC zero word
+    for (i = 0; i < stuffing_bytes; i += 3) {
+      *buf++ = 0x00;  // CABAC zero word
       *buf++ = 0x00;
       *buf++ = 0x03;
     }
-    cur_stats->bit_use_stuffing_bits[p_Vid->type] += (i<<3);
+    cur_stats->bit_use_stuffing_bits[p_Vid->type] += (i << 3);
     nalu->len += i;
-  }  
+  }
 
   return i;
 }
-
