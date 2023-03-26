@@ -63,7 +63,7 @@ int ParseSizeFromString (VideoDataFile *input_file, int *x_size, int *y_size, do
 
     // Try conversion of number
     *p2 = 0;
-    *x_size = strtol( p1 + 1, &tail, 10);
+    *x_size = (int) strtol( p1 + 1, &tail, 10);
 
     // If there are characters left in the string, or the string is null, discard conversion
     if (*tail != '\0' || *(p1 + 1) == '\0') 
@@ -88,7 +88,7 @@ int ParseSizeFromString (VideoDataFile *input_file, int *x_size, int *y_size, do
     // Try conversion of number
     c = *p1;
     *p1 = 0;
-    *y_size = strtol( p2 + 1, &tail, 10);
+    *y_size = (int) strtol( p2 + 1, &tail, 10);
 
     // If there are characters left in the string, or the string is null, discard conversion
     if (*tail != '\0' || *(p2 + 1) == '\0') 
@@ -185,7 +185,7 @@ void ParseFrameNoFormatFromString (VideoDataFile *input_file)
     if (*(p1 + 1) == '0')
       *zero_pad = 1;
 
-    *num_digits = strtol( p1 + 1, &tail, 10);
+    *num_digits = (int) strtol( p1 + 1, &tail, 10);
 
     // If there are characters left in the string, or the string is null, discard conversion
     if (*tail != '\0' || *(p1 + 1) == '\0') 

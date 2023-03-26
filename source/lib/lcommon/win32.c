@@ -64,7 +64,7 @@ void init_time(void)
 
 int64 timediff(TIME_T* start, TIME_T* end)
 {
-  int t1, t2;
+  long t1, t2;
 
   t1 =  end->tv_sec  - start->tv_sec;
   t2 =  end->tv_usec - start->tv_usec;

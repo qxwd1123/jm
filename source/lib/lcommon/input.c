@@ -484,7 +484,7 @@ void buf2img_bitshift ( imgpel** imgX,            //!< Pointer to image plane
           {
             memcpy(&tmp32, buf + ((i + j * size_x) * 4), 4);
             ui32  = ((tmp32 & 0xFF00) << 8) | ((tmp32 & 0xFF)<<24) | ((tmp32 & 0xFF0000)>>8) | ((tmp32 & 0xFF000000)>>24);
-            imgX[j][i] = (imgpel) rshift_rnd(ui32, bitshift);
+            imgX[j][i] = (imgpel) rshift_rnd_ul(ui32, bitshift);
           }
         }
         break;

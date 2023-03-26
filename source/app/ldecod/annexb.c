@@ -58,9 +58,9 @@ void free_annex_b(ANNEXB_t **p_annex_b)
 *    fill IO buffer
 ************************************************************************
 */
-static inline int getChunk(ANNEXB_t *annex_b)
+static inline size_t getChunk(ANNEXB_t *annex_b)
 {
-  unsigned int readbytes = read (annex_b->BitStreamFile, annex_b->iobuffer, annex_b->iIOBufferSize); 
+  size_t readbytes = read (annex_b->BitStreamFile, annex_b->iobuffer, annex_b->iIOBufferSize);
   if (0==readbytes)
   {
     annex_b->is_eof = TRUE;

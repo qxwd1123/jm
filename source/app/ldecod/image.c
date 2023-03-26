@@ -1135,7 +1135,7 @@ void find_snr(VideoParameters *p_Vid,
   SNRParameters   *snr   = p_Vid->snr;
 
   int k;
-  int ret;
+  size_t ret;
   int64 diff_comp[3] = {0};
   int64  status;
   int symbol_size_in_bytes = (p_Vid->pic_unit_bitsize_on_disk >> 3);
