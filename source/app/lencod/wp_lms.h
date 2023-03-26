@@ -26,8 +26,8 @@ extern void   ComputeExplicitWPParamsLMS(Slice *currSlice,
                                          int start_mb,
                                          int end_mb, 
                                          short default_weight[3],
-                                         short weight[6][MAX_REFERENCE_PICTURES][3],
-                                         short offset[6][MAX_REFERENCE_PICTURES][3]);
+                                         short weight[2][MAX_REFERENCE_PICTURES][3],
+                                         short offset[2][MAX_REFERENCE_PICTURES][3]);
 extern void   ComputeExplicitWPParamsJNT(Slice *currSlice,
                                          int start_mb,
                                          int end_mb, 

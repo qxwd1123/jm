@@ -199,7 +199,8 @@ void ParseFrameNoFormatFromString (VideoDataFile *input_file)
     *p2 = 'd';
 
     tail++;
-    strncpy(ftail, tail, (int) strlen(tail));
+    strncpy(ftail, tail, FILE_NAME_SIZE - 1);
+    ftail[FILE_NAME_SIZE - 1] = 0;
     break;
   }
 
@@ -221,7 +222,7 @@ void OpenFrameFile( VideoDataFile *input_file, int FrameNumberInFile)
 {
   char infile [FILE_NAME_SIZE], in_number[16];
   infile[FILE_NAME_SIZE-1]='\0';
-  strncpy(infile, input_file->fhead, FILE_NAME_SIZE-1);
+  memcpy(infile, input_file->fhead, FILE_NAME_SIZE);
 
   if (input_file->zero_pad)       
     snprintf(in_number, 16, "%0*d", input_file->num_digits, FrameNumberInFile);

@@ -130,6 +130,7 @@ static void encode_sequence     (VideoParameters *p_Vid, InputParameters *p_Inp)
 static void generate_encode_parameters(VideoParameters *p_Vid);
 static void free_encode_parameters(VideoParameters *p_Vid);
 
+char errortext[ET_SIZE]; //!< buffer for error message for exit with error()
 
 void init_stats (InputParameters *p_Inp, StatParameters *p_Stats)
 {

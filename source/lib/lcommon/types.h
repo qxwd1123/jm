@@ -31,31 +31,31 @@ typedef enum
   PLANE_R = 2
 } ColorPlane;
 
-enum {
+typedef enum {
   LIST_0 = 0,
   LIST_1 = 1,
   BI_PRED = 2,
   BI_PRED_L0 = 3,
   BI_PRED_L1 = 4
-};
+} PredList;
 
-enum {
+typedef enum {
   ERROR_SAD = 0,
   ERROR_SSE = 1,
   ERROR_SATD = 2,
   ERROR_PSATD = 3
-};
+} ErrorMetric;
 
-enum {
+typedef enum {
   ME_Y_ONLY = 0,
   ME_YUV_FP = 1,
   ME_YUV_FP_SP = 2
-};
+} YuvFormat;
 
 
-enum {
+typedef enum {
   DISTORTION_MSE = 0
-};
+} Distortionmetric;
 
 
 //! Data Partitioning Modes

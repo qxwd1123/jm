@@ -82,6 +82,8 @@ static const int mb_height_cr[4]= {0,8,16,16};
 #include "sei.h"
 static void SetVUIScaleAndTicks(InputParameters *p_Inp, double frame_rate);
 
+InputParameters cfgparams;
+
 /*!
  ***********************************************************************
  * \brief
