@@ -173,7 +173,7 @@ static inline int rshift_rnd(int x, int a)
   return (a > 0) ? ((x + (1 << (a-1) )) >> a) : (x << (-a));
 }
 
-static inline unsigned long rshift_rnd_ul(unsigned long x, unsigned long a)
+static inline unsigned long rshift_rnd_ul(unsigned long x, int a)
 {
   return (a > 0) ? ((x + (1 << (a-1) )) >> a) : (x << (-a));
 }

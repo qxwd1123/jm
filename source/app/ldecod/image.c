@@ -2013,7 +2013,7 @@ void exit_picture(VideoParameters *p_Vid, StorablePicture **dec_picture)
     p_Vid->pre_frame_num = 0;
   }
 
-#if defined __GNUC__ && !defined __clang__
+#if (defined __GNUC__) && (!defined __clang__)
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wstringop-truncation"
 #endif
@@ -2061,7 +2061,7 @@ void exit_picture(VideoParameters *p_Vid, StorablePicture **dec_picture)
     }
   }
   p_Vid->cslice_type[8] = 0;
-#if defined __GNUC__ && !defined __clang__
+#if (defined __GNUC__) && (!defined __clang__)
 #pragma GCC diagnostic pop
 #endif
   if ((structure==FRAME)||structure==BOTTOM_FIELD)
