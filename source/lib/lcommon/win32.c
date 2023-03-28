@@ -64,15 +64,15 @@ void init_time(void)
 
 int64 timediff(TIME_T* start, TIME_T* end)
 {
-  long t1, t2;
+  int64 t1, t2;
 
   t1 =  end->tv_sec  - start->tv_sec;
   t2 =  end->tv_usec - start->tv_usec;
-  return (int64) t2 + (int64) t1 * (int64) 1000000;
+  return t2 + t1 * 1000000;
 }
 
 int64 timenorm(int64 cur_time)
 {
-  return (int64)(cur_time / (int64) 1000);
+  return cur_time / 1000;
 }
 #endif
