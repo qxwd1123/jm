@@ -1052,7 +1052,8 @@ hme_EPZSSpatialPredictors (EPZSParameters * p_EPZS,
    if (block[0].available)
    {
      point->motion = pic_mv[blk_y][(blk_x-1)];
-     point += ((&point->motion)!=0) ? 1:0;
+     //point += ((&point->motion)!=0) ? 1:0;
+     point += ((point->motion.mv_x!=0)||(point->motion.mv_y!=0)) ? 1:0;
    }
    /*else
    {
@@ -1064,7 +1065,8 @@ hme_EPZSSpatialPredictors (EPZSParameters * p_EPZS,
    if (block[1].available)
    {
       point->motion = pic_mv[blk_y-1][blk_x];
-      point += ((&point->motion)!=0) ? 1:0;
+      //point += ((&point->motion)!=0) ? 1:0;
+      point += ((point->motion.mv_x!=0)||(point->motion.mv_y!=0)) ? 1:0;
    }
    /*else
    {
@@ -1077,7 +1079,8 @@ hme_EPZSSpatialPredictors (EPZSParameters * p_EPZS,
    {
      point->motion = pic_mv[blk_y-1][blk_x+1];
      //++point;
-     point += ((&point->motion)!=0) ? 1:0;
+     //point += ((&point->motion)!=0) ? 1:0;
+     point += ((point->motion.mv_x!=0)||(point->motion.mv_y!=0)) ? 1:0;
    }
    /*else
    {
@@ -1090,7 +1093,8 @@ hme_EPZSSpatialPredictors (EPZSParameters * p_EPZS,
    {
      point->motion = pic_mv[blk_y-1][blk_x-1];
      //++point;
-     point += ((&point->motion)!=0) ? 1:0;
+     //point += ((&point->motion)!=0) ? 1:0;
+     point += ((point->motion.mv_x!=0)||(point->motion.mv_y!=0)) ? 1:0;
    }
    /*else
    {
