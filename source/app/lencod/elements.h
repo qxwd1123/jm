@@ -27,7 +27,8 @@
  *  order of elements follow dependencies for picture reconstruction
  */
 
-#define MAXPARTITIONMODES 2 //!< maximum possible partition modes as defined in assignSE2partition[][]
+#define MAXPARTITIONMODES 2
+//!< maximum possible partition modes as defined in assignSE2partition[][]
 
 /*!
  *  \brief  lookup-table to assign different elements to partition

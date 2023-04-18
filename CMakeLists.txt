@@ -93,7 +93,7 @@ endif()
 #bb_enable_warnings( clang warnings-as-errors )
 
 # enable warnings
-bb_enable_warnings( msvc warnings-as-errors "/wd4996" )
+bb_enable_warnings( msvc warnings-as-errors "/wd4996 /wd5105 /wd5103" )
 
 # enable sse4.1 build for all source files for gcc and clang
 if( UNIX OR MINGW )

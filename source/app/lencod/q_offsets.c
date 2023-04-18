@@ -18,10 +18,12 @@ extern char *GetConfigFileContent (char *Filename, int error_type);
 
 #define MAX_ITEMS_TO_PARSE  2000
 
+#define NUM_OFFSET_TYPES 15
+
 int offset4x4_check[15] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 int offset8x8_check[15] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 
-static const char OffsetType4x4[15][24] = {
+static const char OffsetType4x4[NUM_OFFSET_TYPES][24] = {
   "INTRA4X4_LUMA_INTRA",
   "INTRA4X4_CHROMAU_INTRA",
   "INTRA4X4_CHROMAV_INTRA",
@@ -39,7 +41,7 @@ static const char OffsetType4x4[15][24] = {
   "INTER4X4_CHROMAV_INTERB"
 };
 
-static const char OffsetType8x8[15][24] = {
+static const char OffsetType8x8[NUM_OFFSET_TYPES][24] = {
   "INTRA8X8_LUMA_INTRA",
   "INTRA8X8_LUMA_INTERP",
   "INTRA8X8_LUMA_INTERB",
@@ -296,7 +298,7 @@ int CheckOffsetParameterName (char *s, int *type)
   int i = 0;
 
   *type = 0;
-  while ((OffsetType4x4[i] != NULL) && (i < 15))
+  while (i < NUM_OFFSET_TYPES)
   {
     if (0 == strcmp (OffsetType4x4[i], s))
       return i;
@@ -306,7 +308,7 @@ int CheckOffsetParameterName (char *s, int *type)
 
   i = 0;
   *type = 1;
-  while ((OffsetType8x8[i] != NULL) && (i < 15))
+  while (i < NUM_OFFSET_TYPES)
   {
     if (0 == strcmp (OffsetType8x8[i], s))
       return i;

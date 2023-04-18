@@ -484,7 +484,7 @@ static void write_out_picture(VideoParameters *p_Vid, StorablePicture *p, int p_
   int iLumaSizeX, iLumaSizeY;
   int iChromaSizeX, iChromaSizeY;
 
-  int ret;
+  size_t ret;
 
   if (p->non_existing)
     return;

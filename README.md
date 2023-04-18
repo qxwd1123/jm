@@ -21,18 +21,18 @@ mkdir build
 Use one of the following CMake commands, based on your platform. Feel free to change the commands to satisfy
 your needs.
 
-**Windows Visual Studio 2015/17/19 64 Bit:**
+**Windows Visual Studio 2017/19 64 Bit:**
 
-Use the proper generator string for generating Visual Studio files, e.g. for VS 2015:
+Use the proper generator string for generating Visual Studio files, e.g. for VS 2019:
 
 ```bash
 cd build
-cmake .. -G "Visual Studio 14 2015 Win64"
+cmake .. -G "Visual Studio 16 2019"
 ```
 
 Then open the generated solution file in MS Visual Studio.
 
-For VS 2017 use "Visual Studio 15 2017 Win64", for VS 2019 use "Visual Studio 16 2019".
+For VS 2017 use "Visual Studio 15 2017 Win64".
 
 Visual Studio 2019 also allows you to open the CMake directory directly. Choose "File->Open->CMake" for this option.
 
@@ -49,7 +49,7 @@ For generating Makefiles with optional non-default compilers, use the following 
 
 ```bash
 cd build
-cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_C_COMPILER=gcc-9 -DCMAKE_CXX_COMPILER=g++-9
+cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_C_COMPILER=gcc-11 -DCMAKE_CXX_COMPILER=g++-11
 ```
 In this example the brew installed GCC 9 is used for a release build.
 

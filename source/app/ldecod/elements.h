@@ -72,7 +72,8 @@
 #define EC_REQ              1   //!< error concealment required
 #define EC_SYNC             2   //!< search and sync on next header element
 
-#define MAXPARTITIONMODES   2   //!< maximum possible partition modes as defined in assignSE2partition[][]
+#define MAXPARTITIONMODES   2
+//!< maximum possible partition modes as defined in assignSE2partition[][]
 
 /*!
  *  \brief  lookup-table to assign different elements to partition

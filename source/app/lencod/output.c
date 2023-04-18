@@ -178,7 +178,7 @@ void write_out_picture(StorablePicture *p, FrameFormat *output, int p_out)
   int SubWidthC  [4]= { 1, 2, 2, 1};
   int SubHeightC [4]= { 1, 2, 1, 1};
 
-  int ret;
+  size_t ret;
 
   int crop_left, crop_right, crop_top, crop_bottom;
   int symbol_size_in_bytes = output->pic_unit_size_shift3;

@@ -1135,7 +1135,7 @@ void find_snr(VideoParameters *p_Vid,
   SNRParameters   *snr   = p_Vid->snr;
 
   int k;
-  int ret;
+  size_t ret;
   int64 diff_comp[3] = {0};
   int64  status;
   int symbol_size_in_bytes = (p_Vid->pic_unit_bitsize_on_disk >> 3);
@@ -2013,6 +2013,11 @@ void exit_picture(VideoParameters *p_Vid, StorablePicture **dec_picture)
     p_Vid->pre_frame_num = 0;
   }
 
+#if (defined __GNUC__) && (!defined __clang__)
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wstringop-truncation"
+#endif
+
   if (p_Inp->silent == FALSE)
   {
     if (structure==TOP_FIELD || structure==FRAME)
@@ -2055,7 +2060,10 @@ void exit_picture(VideoParameters *p_Vid, StorablePicture **dec_picture)
         strncat(p_Vid->cslice_type,"| b )",8-strlen(p_Vid->cslice_type));   
     }
   }
-
+  p_Vid->cslice_type[8] = 0;
+#if (defined __GNUC__) && (!defined __clang__)
+#pragma GCC diagnostic pop
+#endif
   if ((structure==FRAME)||structure==BOTTOM_FIELD)
   {
     gettime (&(p_Vid->end_time));              // end time

@@ -19,7 +19,7 @@ typedef struct annex_b_struct
   int  BitStreamFile;                //!< the bit stream file
   byte *iobuffer;
   byte *iobufferread;
-  int bytesinbuffer;
+  size_t bytesinbuffer;
   int is_eof;
   int iIOBufferSize;
 

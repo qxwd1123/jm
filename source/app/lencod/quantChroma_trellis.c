@@ -183,7 +183,7 @@ int quant_dc4x2_trellis(Macroblock *currMB, int **tblock, int qp, int* DCLevel, 
 *
 ************************************************************************
 */
-void rdoq_dc_cr_CAVLC(Macroblock *currMB, int **tblock, int qp_per, int qp_rem, LevelQuantParams *q_params_4x4, const byte (*pos_scan)[2], int levelTrellis[], int type)
+void rdoq_dc_cr_CAVLC(Macroblock *currMB, int **tblock, int qp_per, int qp_rem, LevelQuantParams *q_params_4x4, const byte (*pos_scan)[2], int levelTrellis[16], int type)
 {
   VideoParameters *p_Vid = currMB->p_Vid;
 
@@ -205,7 +205,7 @@ void rdoq_dc_cr_CAVLC(Macroblock *currMB, int **tblock, int qp_per, int qp_rem, 
 *
 ************************************************************************
 */
-void rdoq_dc_cr_CABAC(Macroblock *currMB, int **tblock, int qp_per, int qp_rem, LevelQuantParams *q_params_4x4, const byte (*pos_scan)[2], int levelTrellis[], int type)
+void rdoq_dc_cr_CABAC(Macroblock *currMB, int **tblock, int qp_per, int qp_rem, LevelQuantParams *q_params_4x4, const byte (*pos_scan)[2], int levelTrellis[16], int type)
 {
   VideoParameters *p_Vid = currMB->p_Vid;
   const byte *p_scan = &pos_scan[0][0];

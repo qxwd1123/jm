@@ -47,7 +47,7 @@
  */
 int read_ue_v (char *tracestring, Bitstream *bitstream, int *used_bits)
 {
-  SyntaxElement symbol;
+  SyntaxElement symbol = {.value1=0 };
 
   //assert (bitstream->streamBuffer != NULL);
   symbol.type = SE_HEADER;
@@ -78,7 +78,7 @@ int read_ue_v (char *tracestring, Bitstream *bitstream, int *used_bits)
  */
 int read_se_v (char *tracestring, Bitstream *bitstream, int *used_bits)
 {
-  SyntaxElement symbol;
+  SyntaxElement symbol = {.value1=0 };
 
   //assert (bitstream->streamBuffer != NULL);
   symbol.type = SE_HEADER;
@@ -112,7 +112,7 @@ int read_se_v (char *tracestring, Bitstream *bitstream, int *used_bits)
  */
 int read_u_v (int LenInBits, char*tracestring, Bitstream *bitstream, int *used_bits)
 {
-  SyntaxElement symbol;
+  SyntaxElement symbol = {.value1=0 };
   symbol.inf = 0;
 
   //assert (bitstream->streamBuffer != NULL);
@@ -148,7 +148,7 @@ int read_u_v (int LenInBits, char*tracestring, Bitstream *bitstream, int *used_b
  */
 int read_i_v (int LenInBits, char*tracestring, Bitstream *bitstream, int *used_bits)
 {
-  SyntaxElement symbol;
+  SyntaxElement symbol = {.value1=0 };
   symbol.inf = 0;
 
   //assert (bitstream->streamBuffer != NULL);

@@ -1181,7 +1181,8 @@ int GenerateSEImessage_rbsp (InputParameters *p_Inp, int id, byte *rbsp)
   bitstream->bits_to_go = 8;
 
   {
-    char sei_message[500] = "";
+    char sei_message[INPUT_TEXT_SIZE] = "";
+    memset (sei_message, 0, INPUT_TEXT_SIZE);
     char uuid_message[9] = "Random"; // This is supposed to be Random
     unsigned int i, message_size = (unsigned int) strlen(p_Inp->SEIMessageText);
     TIME_T start_time;
@@ -1190,10 +1191,10 @@ int GenerateSEImessage_rbsp (InputParameters *p_Inp, int id, byte *rbsp)
     if (message_size == 0)
     {
       message_size = 13;
-      strncpy(sei_message,"Empty Message",message_size);
+      strncpy(sei_message,"Empty Message", INPUT_TEXT_SIZE - 1);
     }
     else
-      strncpy(sei_message,p_Inp->SEIMessageText,message_size);
+      strncpy(sei_message, p_Inp->SEIMessageText, INPUT_TEXT_SIZE);
 
     len+=write_u_v (8,"SEI: last_payload_type_byte", 5, bitstream);
     message_size += 17;

@@ -1,4 +1,3 @@
-
 /*!
  **************************************************************************
  * \file defines.h
@@ -182,6 +181,17 @@ typedef enum {
   CR_4x4        =  21
 } CABACBlockTypes;
 
+// Color components
+typedef enum {
+  Y_COMP = 0,    // Y Component
+  U_COMP = 1,    // U Component
+  V_COMP = 2,    // V Component
+  R_COMP = 3,    // R Component
+  G_COMP = 4,    // G Component
+  B_COMP = 5,    // B Component
+  T_COMP = 6
+} ColorComponent;
+
 // Macro defines
 #define Q_BITS          15
 #define DQ_BITS          6
@@ -228,23 +238,12 @@ typedef enum {
   PLANE_8       =  3
 } I8x8PredModes;
 
-// Color components
-enum {
-  Y_COMP = 0,    // Y Component
-  U_COMP = 1,    // U Component
-  V_COMP = 2,    // V Component
-  R_COMP = 3,    // R Component
-  G_COMP = 4,    // G Component
-  B_COMP = 5,    // B Component
-  T_COMP = 6
-} ColorComponent;
-
-enum {
+typedef enum {
   EOS = 1,    //!< End Of Sequence
   SOP = 2,    //!< Start Of Picture
   SOS = 3,     //!< Start Of Slice
   SOS_CONT = 4
-};
+} StartEnd;
 
 // MV Prediction types
 typedef enum {
@@ -254,11 +253,11 @@ typedef enum {
   MVPRED_UR       = 3
 } MVPredTypes;
 
-enum {
+typedef enum {
   DECODING_OK     = 0,
   SEARCH_SYNC     = 1,
   PICTURE_DECODED = 2
-};
+} DecRet;
 
 #define  LAMBDA_ACCURACY_BITS         16
 #define INVALIDINDEX  (-135792468)

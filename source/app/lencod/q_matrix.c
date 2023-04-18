@@ -17,7 +17,9 @@ extern char *GetConfigFileContent (char *Filename, int error_type);
 
 #define MAX_ITEMS_TO_PARSE  1000
 
-static const int quant_coef[6][4][4] = {
+#define NUM_MATRIX_TYPES 6
+
+static const int quant_coef[NUM_MATRIX_TYPES][4][4] = {
   {{13107, 8066,13107, 8066},{ 8066, 5243, 8066, 5243},{13107, 8066,13107, 8066},{ 8066, 5243, 8066, 5243}},
   {{11916, 7490,11916, 7490},{ 7490, 4660, 7490, 4660},{11916, 7490,11916, 7490},{ 7490, 4660, 7490, 4660}},
   {{10082, 6554,10082, 6554},{ 6554, 4194, 6554, 4194},{10082, 6554,10082, 6554},{ 6554, 4194, 6554, 4194}},
@@ -26,7 +28,7 @@ static const int quant_coef[6][4][4] = {
   {{ 7282, 4559, 7282, 4559},{ 4559, 2893, 4559, 2893},{ 7282, 4559, 7282, 4559},{ 4559, 2893, 4559, 2893}}
 };
 
-const int dequant_coef[6][4][4] = {
+const int dequant_coef[NUM_MATRIX_TYPES][4][4] = {
   {{10, 13, 10, 13},{ 13, 16, 13, 16},{10, 13, 10, 13},{ 13, 16, 13, 16}},
   {{11, 14, 11, 14},{ 14, 18, 14, 18},{11, 14, 11, 14},{ 14, 18, 14, 18}},
   {{13, 16, 13, 16},{ 16, 20, 16, 20},{13, 16, 13, 16},{ 16, 20, 16, 20}},
@@ -35,7 +37,7 @@ const int dequant_coef[6][4][4] = {
   {{18, 23, 18, 23},{ 23, 29, 23, 29},{18, 23, 18, 23},{ 23, 29, 23, 29}}
 };
 
-static const int quant_coef8[6][8][8] =
+static const int quant_coef8[NUM_MATRIX_TYPES][8][8] =
 {
   {
     {13107, 12222,  16777,  12222,  13107,  12222,  16777,  12222},
@@ -101,7 +103,7 @@ static const int quant_coef8[6][8][8] =
 
 
 
-static const int dequant_coef8[6][8][8] =
+static const int dequant_coef8[NUM_MATRIX_TYPES][8][8] =
 {
   {
     {20,  19, 25, 19, 20, 19, 25, 19},
@@ -166,10 +168,10 @@ static const int dequant_coef8[6][8][8] =
 };
 
 
-int matrix4x4_check[6] = {0, 0, 0, 0, 0, 0};
-int matrix8x8_check[6] = {0, 0, 0, 0, 0, 0};
+int matrix4x4_check[NUM_MATRIX_TYPES] = {0, 0, 0, 0, 0, 0};
+int matrix8x8_check[NUM_MATRIX_TYPES] = {0, 0, 0, 0, 0, 0};
 
-static const char MatrixType4x4[6][20] =
+static const char MatrixType4x4[NUM_MATRIX_TYPES][20] =
 {
   "INTRA4X4_LUMA",
   "INTRA4X4_CHROMAU",
@@ -179,7 +181,7 @@ static const char MatrixType4x4[6][20] =
   "INTER4X4_CHROMAV"
 };
 
-static const char MatrixType8x8[6][20] =
+static const char MatrixType8x8[NUM_MATRIX_TYPES][20] =
 {
   "INTRA8X8_LUMA",
   "INTER8X8_LUMA",
@@ -249,7 +251,7 @@ static int CheckParameterName (char *s, int *type)
   int i = 0;
 
   *type = 0;
-  while ((MatrixType4x4[i] != NULL) && (i<6))
+  while (i<NUM_MATRIX_TYPES)
   {
     if (0==strcmp (MatrixType4x4[i], s))
       return i;
@@ -259,7 +261,7 @@ static int CheckParameterName (char *s, int *type)
 
   i = 0;
   *type = 1;
-  while ((MatrixType8x8[i] != NULL) && (i<6))
+  while (i<NUM_MATRIX_TYPES)
   {
     if (0==strcmp (MatrixType8x8[i], s))
       return i;

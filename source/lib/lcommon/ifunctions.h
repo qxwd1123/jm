@@ -40,12 +40,22 @@ static inline int imin(int a, int b)
   return ((a) < (b)) ? (a) : (b);
 }
 
+static inline long lmin(long a, long b)
+{
+  return ((a) < (b)) ? (a) : (b);
+}
+
 static inline int imin3(int a, int b, int c)
 {
   return ((a) < (b)) ? imin(a, c) : imin(b, c);
 }
 
 static inline int imax(int a, int b)
+{
+  return ((a) > (b)) ? (a) : (b);
+}
+
+static inline long lmax(long a, long b)
 {
   return ((a) > (b)) ? (a) : (b);
 }
@@ -163,6 +173,11 @@ static inline int rshift_rnd(int x, int a)
   return (a > 0) ? ((x + (1 << (a-1) )) >> a) : (x << (-a));
 }
 
+static inline unsigned long rshift_rnd_ul(unsigned long x, int a)
+{
+  return (a > 0) ? ((x + (1 << (a-1) )) >> a) : (x << (-a));
+}
+
 static inline int rshift_rnd_sign(int x, int a)
 {
   return (x > 0) ? ( ( x + (1 << (a-1)) ) >> a ) : (-( ( iabs(x) + (1 << (a-1)) ) >> a ));
@@ -196,10 +211,26 @@ static inline int iClip1(int high, int x)
   return x;
 }
 
+static inline long lClip1(long high, long x)
+{
+  x = lmax(x, 0);
+  x = lmin(x, high);
+
+  return x;
+}
+
 static inline int iClip3(int low, int high, int x)
 {
   x = imax(x, low);
   x = imin(x, high);
+
+  return x;
+}
+
+static inline long lClip3(long low, long high, long x)
+{
+  x = lmax(x, low);
+  x = lmin(x, high);
 
   return x;
 }

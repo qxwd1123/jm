@@ -83,7 +83,7 @@ static int WriteOneFrame(DecodedPicList *pDecPic, int hFileOutput0, int hFileOut
     int i, iWidth, iHeight, iStride, iWidthUV, iHeightUV, iStrideUV;
     byte *pbBuf;    
     int hFileOutput;
-    int res;
+    size_t res;
 
     iWidth = pPic->iWidth*((pPic->iBitDepth+7)>>3);
     iHeight = pPic->iHeight;
