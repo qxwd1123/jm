@@ -29,7 +29,7 @@
 #endif
 
 #define JM                  "19 (FRExt)"
-#define VERSION             "19.0"
+#define VERSION             "19.1"
 #define EXT_VERSION         "(FRExt)"
 
 #define DUMP_DPB                  0    //!< Dump DPB info for debug purposes
